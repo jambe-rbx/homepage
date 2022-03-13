@@ -1,11 +1,6 @@
-import { FC, useEffect } from "react"
+import type { FC } from "react"
 
-import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
-import clsx from "clsx"
-
-import { Icon } from "@iconify/react"
 import Typography from "../Typography"
 
 type Props = {
@@ -21,12 +16,10 @@ const ExperienceCard: FC<Props> = ({ id, name, socialLinks }) => {
       <a className="flex flex-col flex-1 flex-grow gap-2 min-w-[256px] max-w-lg">
         {/* Thumbnail */}
         <div className="w-full h-0 aspect-h-8 aspect-w-16 md:aspect-h-9">
-          <Image
+          <img
             src={`https://www.roblox.com/asset-thumbnail/image?assetId=${id}&width=768&height=432&format=png`}
             alt={`${name} thumbnail`}
             className="w-full rounded-md"
-            layout="fill"
-            objectFit="cover"
             width={768}
             height={432}
           />

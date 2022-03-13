@@ -1,6 +1,7 @@
-import { Icon } from "@iconify/react"
-import Image from "next/image"
 import type { FC } from "react"
+
+import { Icon } from "@iconify/react"
+
 import TextLink from "../Button/TextLink"
 import Typography from "../Typography"
 
@@ -44,15 +45,13 @@ const TeamMemberCard: FC<Props> = ({
   return (
     <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-fit">
       <figure className="relative h-32 w-32 flex-shrink rounded-full overflow-clip bg-light-100">
-        <Image
+        <img
           src={
             photo ??
             `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`
           }
           alt={`${name}'s Profile Picture`}
-          layout="fill"
-          objectFit="scale-down"
-          loading="lazy"
+          className="w-full h-full"
         />
       </figure>
 
