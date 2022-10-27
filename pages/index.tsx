@@ -20,6 +20,19 @@ const Home: NextPage = () => {
         <title>JamBE</title>
 
         <link rel="icon" href="/wordmark-short.svg" type="image/svg+xml" />
+
+        <meta property="og:title" content="JamBE" />
+        <meta property="og:url" content="https://jambe.uk/" />
+        <meta
+          property="og:image"
+          content="https://jambe.uk/YouTube%20Banner.png"
+        />
+        <meta property="og:type" content="website" />
+
+        <meta
+          name="description"
+          content="An independent studio, hand-crafting games and experiences on the Roblox platform."
+        />
       </Head>
 
       <Announcement
