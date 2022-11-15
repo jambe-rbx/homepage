@@ -1,23 +1,23 @@
-import type { FC } from "react";
+import type { FC } from "react"
 
-import Image from "next/image";
-import { useState } from "react";
-import clsx from "clsx";
+import Image from "next/image"
+import { useState } from "react"
+import clsx from "clsx"
 
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react"
 
-import TextLink from "../Button/TextLink";
-import Typography from "../Typography";
+import TextLink from "../Button/TextLink"
+import Typography from "../Typography"
 
 type Props = {
-  robloxId: number;
-  name: string;
-  role?: string;
-  photo?: string;
+  robloxId: number
+  name: string
+  role?: string
+  photo?: string
   socialLinks?: {
-    [key: string]: string;
-  };
-};
+    [key: string]: string
+  }
+}
 
 const socialIcons: { [key: string]: string } = {
   roblox: "simple-icons:roblox",
@@ -26,7 +26,7 @@ const socialIcons: { [key: string]: string } = {
   discord: "akar-icons:discord-fill",
   itchio: "simple-icons:itchdotio",
   github: "akar-icons:github-fill",
-};
+}
 
 const SocialLink: FC<{
   url: string;
@@ -37,7 +37,7 @@ const SocialLink: FC<{
   <TextLink href={url} newTab title={`${name} on ${networkName}`}>
     <Icon icon={icon} />
   </TextLink>
-);
+)
 
 const TeamMemberCard: FC<Props> = ({
   robloxId,
@@ -46,7 +46,7 @@ const TeamMemberCard: FC<Props> = ({
   role,
   photo,
 }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
     <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-fit">
@@ -60,7 +60,7 @@ const TeamMemberCard: FC<Props> = ({
       >
         <Image
           src={
-            photo ??
+            photo ||
             `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`
           }
           alt={`${name}'s Profile Picture`}
@@ -90,10 +90,10 @@ const TeamMemberCard: FC<Props> = ({
           {socialLinks &&
             Object.entries(socialLinks).map(
               ([networkName, url]: [string, string], index) => {
-                const icon = socialIcons?.[networkName];
+                const icon = socialIcons?.[networkName]
 
                 if (!icon) {
-                  return;
+                  return
                 }
 
                 return (
@@ -104,13 +104,13 @@ const TeamMemberCard: FC<Props> = ({
                     networkName={networkName}
                     icon={icon}
                   />
-                );
+                )
               }
             )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TeamMemberCard;
+export default TeamMemberCard
