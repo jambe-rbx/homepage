@@ -1,5 +1,9 @@
 import type { FC } from "react"
 
+import Image from "next/image"
+import { useState } from "react"
+import clsx from "clsx"
+
 import { Icon } from "@iconify/react"
 
 import TextLink from "../Button/TextLink"
@@ -42,16 +46,22 @@ const TeamMemberCard: FC<Props> = ({
   role,
   photo,
 }) => {
+  const [ imageLoaded, setImageLoaded ] = useState(false)
+
   return (
     <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2 w-full md:w-fit">
-      <figure className="relative h-32 w-32 flex-shrink rounded-full overflow-clip bg-light-100">
-        <img
+      <figure className={clsx("relative h-32 w-32 flex-shrink rounded-full overflow-clip bg-light-100", {
+        "animate-pulse": !imageLoaded,
+      })}>
+        <Image
           src={
             photo ??
             `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`
           }
           alt={`${name}'s Profile Picture`}
-          className="w-full h-full"
+          placeholder="empty"
+          fill
+          onLoadingComplete={() => setImageLoaded(true)}
         />
       </figure>
 
