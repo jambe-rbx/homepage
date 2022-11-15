@@ -64,7 +64,6 @@ const TeamMemberCard: FC<Props> = ({
             `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`
           }
           alt={`${name}'s Profile Picture`}
-          placeholder="empty"
           fill
           onLoadingComplete={() => setImageLoaded(true)}
         />
