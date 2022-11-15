@@ -1,9 +1,9 @@
-import type { AppProps } from "next/app";
+import type { AppProps } from "next/app"
 
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/react"
 
-import "@fontsource/poppins";
-import "../styles/globals.css";
+import "@fontsource/poppins"
+import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <Analytics />
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
