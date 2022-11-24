@@ -2,7 +2,7 @@ import type { NextPage } from "next"
 
 import Head from "next/head"
 
-import siteData from "../public/data.yml"
+import siteData from "/public/data.yml"
 
 import Announcement from "../components/Announcement"
 import TextLink from "../components/Button/TextLink"
