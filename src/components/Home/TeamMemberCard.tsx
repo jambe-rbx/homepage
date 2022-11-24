@@ -1,8 +1,8 @@
 import type { FC } from "react"
 
+import clsx from "clsx"
 import Image from "next/image"
 import { useState } from "react"
-import clsx from "clsx"
 
 import { Icon } from "@iconify/react"
 
@@ -29,10 +29,10 @@ const socialIcons: { [key: string]: string } = {
 }
 
 const SocialLink: FC<{
-  url: string;
-  name: string;
-  networkName: string;
-  icon: string;
+  url: string
+  name: string
+  networkName: string
+  icon: string
 }> = ({ url, name, networkName, icon }) => (
   <TextLink href={url} newTab title={`${name} on ${networkName}`}>
     <Icon icon={icon} />
@@ -48,7 +48,8 @@ const TeamMemberCard: FC<Props> = ({
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
-  const imageUrl = photo ||
+  const imageUrl =
+    photo ||
     `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`
 
   return (
@@ -61,12 +62,14 @@ const TeamMemberCard: FC<Props> = ({
           }
         )}
       >
-        {imageUrl && <Image
-          src={imageUrl}
-          alt={`${name}'s Profile Picture`}
-          fill
-          onLoadingComplete={() => setImageLoaded(true)}
-        />}
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={`${name}'s Profile Picture`}
+            onLoadingComplete={() => setImageLoaded(true)}
+            layout="fill"
+          />
+        )}
       </figure>
 
       <div className="flex flex-col md:items-center gap-2">

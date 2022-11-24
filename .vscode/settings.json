@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "[javascript][javascriptreact][typescript][typescriptreact][mdx][json][jsonc]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
@@ -11,11 +11,15 @@
   "typescript.preferences.importModuleSpecifierEnding": "minimal",
   "eslint.format.enable": true,
   "eslint.run": "onType",
-  "[css][scss][less][postcss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
+    "source.organizeImports": true
   },
   "css.validate": false,
   "scss.validate": false,
@@ -25,5 +29,5 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  }
 }
