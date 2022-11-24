@@ -1,7 +1,26 @@
 import { Icon } from "@iconify/react"
-import LinkButton from "./Button/TextLink"
+import Link from "next/link"
+
 import WordmarkShort from "./Logos/WordmarkShort"
 import Typography from "./Typography"
+
+const FOOTER_LINKS = [
+  {
+    title: "JamBE on Roblox",
+    icon: "simple-icons:roblox",
+    url: "https://www.roblox.com/groups/3989593",
+  },
+  {
+    title: "Follow us!",
+    icon: "akar-icons:twitter-fill",
+    url: "https://twitter.com/jambe_rbx",
+  },
+  {
+    title: "Subscribe",
+    icon: "akar-icons:youtube-fill",
+    url: "https://www.youtube.com/@jambe-rbx",
+  },
+]
 
 export default function Footer() {
   return (
@@ -14,36 +33,25 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="flex flex-col w-full items-center md:items-end">
-            <LinkButton
-              discrete
-              newTab
-              href="https://www.roblox.com/groups/3989593"
-            >
-              JamBE on Roblox
-              <Icon icon="simple-icons:roblox" />
-            </LinkButton>
+          <div className="flex flex-col w-full items-center md:items-end gap-2 md:gap-0">
+            {FOOTER_LINKS.map((link) => (
+              <Link
+                href={link.url}
+                key={link.title}
+                className="hover:underline flex gap-2 items-center"
+              >
+                {link.title}
 
-            <LinkButton discrete newTab href="https://twitter.com/jambe_rbx">
-              Follow Us!
-              <Icon icon="akar-icons:twitter-fill" />
-            </LinkButton>
-
-            <LinkButton
-              discrete
-              newTab
-              href="https://www.youtube.com/channel/UC-_PJfvs5vRrj2mnK-hvLYg"
-            >
-              Subscribe
-              <Icon icon="akar-icons:youtube-fill" />
-            </LinkButton>
+                <Icon icon={link.icon} />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Copyright */}
       <section className="be-section flex justify-center">
-        <Typography className="opacity-50">
+        <Typography className="opacity-75">
           &copy; {new Date().getFullYear()} JamBE
         </Typography>
       </section>

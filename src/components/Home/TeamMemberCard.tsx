@@ -1,12 +1,12 @@
 import type { FC } from "react"
 
 import clsx from "clsx"
-import Image from "next/image"
 import { useState } from "react"
 
 import { Icon } from "@iconify/react"
+import Image from "next/image"
+import Link from "next/link"
 
-import TextLink from "../Button/TextLink"
 import Typography from "../Typography"
 
 type Props = {
@@ -34,9 +34,9 @@ const SocialLink: FC<{
   networkName: string
   icon: string
 }> = ({ url, name, networkName, icon }) => (
-  <TextLink href={url} newTab title={`${name} on ${networkName}`}>
-    <Icon icon={icon} />
-  </TextLink>
+  <Link href={url} target="_blank" title={`${name} on ${networkName}`}>
+    <Icon icon={icon} fill="currentColor" />
+  </Link>
 )
 
 const TeamMemberCard: FC<Props> = ({
@@ -72,17 +72,17 @@ const TeamMemberCard: FC<Props> = ({
         )}
       </figure>
 
-      <div className="flex flex-col md:items-center gap-2">
+      <div className="flex flex-col md:items-center gap-2 text-primary-700">
         <div className="flex flex-col md:items-center gap-0">
-          <Typography className="font-bold text-xl">{name}</Typography>
+          <Typography className="font-semibold text-xl text-black">
+            {name}
+          </Typography>
           {role && (
-            <Typography className="text-primary font-semibold text-sm">
-              {role}
-            </Typography>
+            <Typography className="font-medium text-sm">{role}</Typography>
           )}
         </div>
 
-        <div className="flex flex-row flex-wrap gap-2 text-xl">
+        <div className="flex flex-row flex-wrap gap-3 md:gap-2 text-xl">
           <SocialLink
             icon={socialIcons.roblox}
             name={name}
