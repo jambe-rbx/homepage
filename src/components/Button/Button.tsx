@@ -23,15 +23,14 @@ const Button: FC<Props> = ({
   title,
   ...rest
 }) => (
-  <Link passHref {...rest}>
-    <a
-      className={`${styles.default} ${styles[variant]}`}
-      target={newTab ? "_blank" : "_self"}
-      rel="noopener"
-      title={title}
-    >
-      {children}
-    </a>
+  <Link
+    className={`${styles.default} ${styles[variant]}`}
+    target={newTab ? "_blank" : "_self"}
+    rel="noopener"
+    title={title}
+    {...rest}
+  >
+    {children}
   </Link>
 )
 
