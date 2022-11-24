@@ -58,7 +58,7 @@ const TeamMemberCard: FC<Props> = ({
         className={clsx(
           "relative h-32 w-32 flex-shrink rounded-full overflow-clip bg-light-100",
           {
-            "animate-pulse": !imageLoaded,
+            "animate-pulse bg-light-300": !imageLoaded,
           }
         )}
       >
