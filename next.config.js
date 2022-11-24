@@ -4,7 +4,13 @@ const withYaml = require("next-plugin-yaml")
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos", "roblox.com", "www.roblox.com"],
+    domains: ["www.roblox.com"],
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "roblox.com",
+    //   },
+    // ],
   },
 }
 

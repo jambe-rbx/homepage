@@ -4,14 +4,14 @@ import Head from "next/head"
 
 import siteData from "../public/data.yml"
 
-import Header from "../components/Hero"
+import Announcement from "../components/Announcement"
 import TextLink from "../components/Button/TextLink"
-import Typography from "../components/Typography"
 import Footer from "../components/Footer"
+import Header from "../components/Hero"
 import ExperienceCard from "../components/Home/ExperienceCard"
 import TeamMemberCard from "../components/Home/TeamMemberCard"
-import Announcement from "../components/Announcement"
 import WordmarkShort from "../components/Logos/WordmarkShort"
+import Typography from "../components/Typography"
 
 const Home: NextPage = () => {
   return (
@@ -81,7 +81,8 @@ const Home: NextPage = () => {
                 siteData?.experiences?.map((experience: any, index: number) => (
                   <ExperienceCard
                     key={index}
-                    id={experience.id}
+                    rootPlaceId={experience.rootPlaceId}
+                    universeId={experience.universeId}
                     name={experience.name}
                     socialLinks={experience.socialLinks}
                   />

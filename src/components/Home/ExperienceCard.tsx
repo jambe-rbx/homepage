@@ -1,23 +1,46 @@
-import type { FC } from "react"
+import { FC, useEffect } from "react"
 
+import clsx from "clsx"
+import Image from "next/image"
 import Link from "next/link"
+import useThumbnail from "../../hooks/useThumbnail"
 import Typography from "../Typography"
 
 type Props = {
-  id: number
-  // universeId: number
+  rootPlaceId: number
+  universeId: number
   name: string
   socialLinks?: { [key: string]: string }
 }
 
-const ExperienceCard: FC<Props> = ({ id, name, socialLinks }) => {
+const ExperienceCard: FC<Props> = ({
+  universeId,
+  rootPlaceId,
+  name,
+  socialLinks,
+}) => {
+  const { data, error } = useThumbnail({ id: universeId })
+
+  const imageUrl = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`
+
+  useEffect(() => {
+    console.log({ data, error })
+  }, [data, error])
+
   return (
-    <Link href={`https://roblox.com/games/${id}`} passHref>
+    <Link href={`https://roblox.com/games/${rootPlaceId}`} passHref>
       <a className="flex flex-col flex-1 flex-grow gap-2 min-w-[256px] max-w-lg">
         {/* Thumbnail */}
-        <div className="w-full h-0 aspect-h-8 aspect-w-16 md:aspect-h-9">
-          <img
-            src={`https://www.roblox.com/asset-thumbnail/image?assetId=${id}&width=768&height=432&format=png`}
+        <div
+          className={clsx(
+            "w-full h-0 aspect-h-8 aspect-w-16 md:aspect-h-9 bg-light-100 rounded",
+            {
+              "animate-pulse bg-light-300": !error,
+            }
+          )}
+        >
+          <Image
+            src={imageUrl}
             alt={`${name} thumbnail`}
             className="w-full rounded-md"
             width={768}
