@@ -1,3 +1,6 @@
+import type { ThumbnailResponse } from "../pages/api/thumbnails/experience"
+
+import { useEffect, useState } from "react"
 import { useFetch } from "usehooks-ts"
 
 type UseThumbnailProps = {
@@ -9,9 +12,17 @@ export default function useThumbnail({
   id,
   size = "768x432",
 }: UseThumbnailProps) {
-  const { data, error } = useFetch(
+  const [completed, setCompleted] = useState(false)
+
+  const { data, error } = useFetch<ThumbnailResponse>(
     `/api/thumbnails/experience?id=${id}&size=${size}`
   )
 
-  return { data, error }
+  useEffect(() => {
+    if (data?.success && data?.state === "completed") {
+      setCompleted(true)
+    }
+  }, [data])
+
+  return { data, error, completed }
 }

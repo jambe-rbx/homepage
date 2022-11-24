@@ -1,8 +1,8 @@
 # announcement:
-#   text: This is an announcement to test the announcement banner component, which is displayed at the top of the page. It should be able to wrap over multiple lines, but is clamped to two lines at most. Any text that is too long will be truncated; there is also a "summary" text, which is shown on small screens.
-#   summary: Test announcement!
+#   text: Join the Roblox group to receive special members-only perks!
+#   summary: Join the group for perks!
 #   action:
-#     text: Do something
+#     text: Join Group
 #     url: https://roblox.com/groups/3989593
 
 experiences:

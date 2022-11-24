@@ -1,9 +1,11 @@
 import { FC, useEffect } from "react"
 
 import clsx from "clsx"
+import useThumbnail from "../../hooks/useThumbnail"
+
+import { Transition } from "@headlessui/react"
 import Image from "next/image"
 import Link from "next/link"
-import useThumbnail from "../../hooks/useThumbnail"
 import Typography from "../Typography"
 
 type Props = {
@@ -19,13 +21,13 @@ const ExperienceCard: FC<Props> = ({
   name,
   socialLinks,
 }) => {
-  const { data, error } = useThumbnail({ id: universeId })
+  const { data, error, completed } = useThumbnail({ id: universeId })
 
   const imageUrl = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`
 
   useEffect(() => {
-    console.log({ data, error })
-  }, [data, error])
+    console.log({ data, error, completed })
+  }, [data, error, completed])
 
   return (
     <Link
@@ -36,19 +38,27 @@ const ExperienceCard: FC<Props> = ({
       {/* Thumbnail */}
       <div
         className={clsx(
-          "w-full h-0 aspect-h-8 aspect-w-16 md:aspect-h-9 bg-light-100 rounded",
+          "w-full h-0 aspect-h-9 aspect-w-16 bg-light-100 rounded relative",
           {
-            "animate-pulse bg-light-300": !error,
+            "animate-pulse bg-light-300": !completed,
           }
         )}
       >
-        <Image
-          src={imageUrl}
-          alt={`${name} thumbnail`}
-          className="w-full rounded-md"
-          width={768}
-          height={432}
-        />
+        <Transition
+          show={completed}
+          enter="transition-opacity duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+        >
+          {completed && data?.success && (
+            <Image
+              src={data.url}
+              alt={`${name} thumbnail`}
+              className="rounded-md"
+              fill
+            />
+          )}
+        </Transition>
       </div>
 
       <div className="flex flex-col">

@@ -18,7 +18,7 @@ const Announcement: FC<Props> = ({ show, action, summary, children }) => {
   }
 
   return (
-    <div className="bg-primary-600 text-light">
+    <div className="bg-primary-900 text-light">
       <div className="max-w-7xl mx-auto p-3 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center gap-2">
           <div className="md:w-0 flex-grow flex items-center">

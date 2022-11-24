@@ -60,6 +60,6 @@ export default async function handler(
       success: true,
       placeId: data[0].thumbnails[0].targetId,
       url: data[0].thumbnails[0].imageUrl,
-      state: data[0].thumbnails[0].state,
+      state: data[0].thumbnails[0].state.toLowerCase(),
     })
 }

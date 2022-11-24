@@ -67,7 +67,7 @@ const TeamMemberCard: FC<Props> = ({
             src={imageUrl}
             alt={`${name}'s Profile Picture`}
             onLoadingComplete={() => setImageLoaded(true)}
-            layout="fill"
+            fill
           />
         )}
       </figure>
