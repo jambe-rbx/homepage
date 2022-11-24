@@ -14,9 +14,10 @@ const poppins = Poppins({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <main className={`${poppins.variable} font-sans`}>
       <Head>
         <title>JamBE</title>
+
         <meta name="title" content="JamBE" />
         <meta
           name="description"
@@ -50,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <Component {...pageProps} />
       <Analytics />
-    </>
+    </main>
   )
 }
 
