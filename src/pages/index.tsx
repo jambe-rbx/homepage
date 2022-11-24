@@ -88,7 +88,7 @@ const Home: NextPage = () => {
                   />
                 ))
               ) : (
-                <div className="w-full h-64 flex flex-col justify-center items-center content-center opacity-50 gap-2">
+                <div className="w-full h-64 flex flex-col justify-center items-center content-center opacity-75 gap-2">
                   <WordmarkShort className="w-12 h-12 saturate-0" />
                   <Typography variant="custom" className="text-sm">
                     Check back later
@@ -99,7 +99,7 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className="be-section bg-primary text-light">
+        <section className="be-section bg-primary text-dark">
           <div className="be-container">
             <Typography variant="h2">Community</Typography>
             <Typography>

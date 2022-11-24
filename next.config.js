@@ -15,6 +15,11 @@ const nextConfig = {
       },
     ],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
+  optimizeFonts: true,
 }
 
 module.exports = withYaml(nextConfig)
