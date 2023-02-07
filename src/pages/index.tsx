@@ -114,7 +114,7 @@ const Home: NextPage = () => {
             <Typography variant="h2">Meet the Team</Typography>
             <Typography>
               JamBE is an independent UK-based studio on Roblox, co-founded by
-              csqrl and justyblox in 2017.
+              csqrl and justyblox in 2018.
             </Typography>
 
             <div className="flex flex-row flex-wrap gap-4 justify-center mt-8">
